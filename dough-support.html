@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dough — Support</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow: #FFE234;
+      --black: #111111;
+      --grey: #f5f5f3;
+      --mid-grey: #888;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--grey);
+      color: var(--black);
+      font-family: 'Chivo Mono', monospace;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--black);
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      background: var(--yellow);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      padding: 6px 16px;
+      border-radius: 8px;
+    }
+
+    .logo-sub {
+      color: #666;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .hero {
+      background: var(--yellow);
+      padding: 60px 40px 50px;
+      border-bottom: 3px solid var(--black);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      font-weight: 400;
+      color: #444;
+      max-width: 500px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 20px;
+      margin-top: 48px;
+    }
+
+    .section-label:first-child {
+      margin-top: 0;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 14px;
+      border: 1.5px solid #e8e8e8;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 20px 24px;
+      font-family: 'Chivo Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--black);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-question:hover {
+      background: #fafafa;
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.7;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 16px;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .contact-card {
+      background: var(--black);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-card h3 {
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .contact-card p {
+      color: #999;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .contact-email {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: opacity 0.15s;
+    }
+
+    .contact-email:hover {
+      opacity: 0.85;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (max-width: 500px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .hero { padding: 40px 24px; }
+      header { padding: 20px 24px; }
+    }
+
+    .info-card {
+      background: white;
+      border-radius: 14px;
+      border: 1.5px solid #e8e8e8;
+      padding: 20px;
+    }
+
+    .info-card .icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .info-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .info-card p {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--mid-grey);
+      border-top: 1px solid #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Dough</div>
+    <span class="logo-sub">Support</span>
+  </header>
+
+  <div class="hero">
+    <h1>How can we help?</h1>
+    <p>Find answers below or get in touch — we're a small team and we actually read every message.</p>
+  </div>
+
+  <div class="container">
+
+    <div class="section-label">Frequently Asked Questions</div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How do I suggest a bakery?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">
+        Open the menu (top left) and tap <strong>Suggest a Bakery</strong>. Fill in as much detail as you can — name, address, website and Instagram all help us verify and add it faster. We review every suggestion and aim to add new bakeries regularly.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How do I report incorrect information?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">
+        On any bakery's detail page, scroll down and tap <strong>Report an Error</strong>. Tell us what's wrong — opening hours, address, or anything else — and we'll update it as soon as possible.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How do I save a bakery to my favourites?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">
+        Tap the heart icon on any bakery's detail page. Your saved bakeries are stored on your device and accessible from the Favourites section in the menu.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How do custom lists work?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">
+        In the Favourites section, tap <strong>New List</strong> to create a custom collection — great for organising by neighbourhood, occasion, or anything else. You can add any bakery to a list from its detail page.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        Why can't I see bakeries near me?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">
+        Dough currently covers London. Make sure location access is enabled for Dough in your iPhone Settings → Privacy & Security → Location Services. If you're in London and still not seeing results, try restarting the app.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        What data does Dough collect?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">
+        Dough collects approximate location data and anonymous usage data (such as which bakeries are viewed and which filters are used) to improve the app. We do not collect your name, email, or any personal information. No data is sold or shared with advertisers. Full details are in our Privacy Policy.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How is the Featured Bakery chosen?
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-answer">
+        The featured bakery rotates weekly and is chosen automatically — it cycles through all bakeries in your city before repeating any. It's not paid placement; every bakery gets a turn.
+      </div>
+    </div>
+
+    <div class="section-label">About the App</div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="icon">🗺️</div>
+        <h4>Coverage</h4>
+        <p>Currently covering London, with more cities coming soon.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">📱</div>
+        <h4>Compatibility</h4>
+        <p>Requires iOS 26 or later. Available on iPhone.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">🔄</div>
+        <h4>Updates</h4>
+        <p>New bakeries are added regularly. Keep the app updated for the latest content.</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">💛</div>
+        <h4>Independent</h4>
+        <p>Dough is independently made. No ads, no paid placements.</p>
+      </div>
+    </div>
+
+    <div class="section-label">Get in Touch</div>
+
+    <div class="contact-card">
+      <h3>Still need help?</h3>
+      <p>Drop us an email and we'll get back to you. We also welcome feedback, bakery tips, and kind words.</p>
+      <a class="contact-email" href="mailto:dough.bakery.app@gmail.com">dough.bakery.app@gmail.com</a>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Dough. Made with 🍞 in London.
+  </footer>
+
+  <script>
+    function toggle(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
