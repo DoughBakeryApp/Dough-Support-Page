@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dough — Support</title>
+  <title>Dough — Your Guide to Artisan Independent Bakeries</title>
+  <meta name="description" content="Dough helps you discover the best independent artisan bakeries near you. No chains, no compromises — just great bread made well." />
   <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -22,51 +24,258 @@
       min-height: 100vh;
     }
 
-    header {
+    /* ── NAV ── */
+    nav {
       background: var(--black);
-      padding: 24px 40px;
+      padding: 18px 40px;
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      background: var(--yellow);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+      padding: 5px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: white; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--black);
+      padding: 100px 40px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 32px;
+      border-bottom: 4px solid var(--yellow);
+    }
+
+    .hero-eyebrow {
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 700;
+      letter-spacing: -3px;
+      line-height: 0.95;
+      color: white;
+      max-width: 700px;
+    }
+
+    .hero h1 span {
+      color: var(--yellow);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 400;
+      color: #999;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 16px;
     }
 
-    .logo {
-      background: var(--yellow);
+    /* App Store badge */
+    .appstore-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
       color: var(--black);
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 12px;
       font-weight: 700;
-      font-size: 22px;
-      letter-spacing: -0.5px;
-      padding: 6px 16px;
-      border-radius: 8px;
+      font-size: 15px;
+      transition: opacity 0.15s, transform 0.15s;
+      border: 2px solid white;
     }
 
-    .logo-sub {
+    .appstore-badge:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .appstore-badge svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .appstore-badge-sub {
+      font-size: 10px;
+      font-weight: 400;
       color: #666;
-      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .coming-soon-note {
+      font-size: 12px;
+      color: #555;
       font-weight: 400;
     }
 
-    .hero {
+    /* ── FEATURES ── */
+    .features {
       background: var(--yellow);
-      padding: 60px 40px 50px;
+      padding: 64px 40px;
       border-bottom: 3px solid var(--black);
     }
 
-    .hero h1 {
-      font-size: clamp(36px, 6vw, 64px);
+    .features-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .feature {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .feature h3 {
+      font-size: 15px;
       font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .feature p {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: white;
+      border-bottom: 3px solid var(--black);
+    }
+
+    .about-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 16px;
+    }
+
+    .about h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .about h2 span {
+      background: var(--yellow);
+      padding: 0 4px;
+    }
+
+    .about p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .about p:last-child { margin-bottom: 0; }
+
+    .about-graphic {
+      background: var(--black);
+      border-radius: 20px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-stat {
+      border-bottom: 1px solid #222;
+      padding-bottom: 20px;
+    }
+
+    .about-stat:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .about-stat-number {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--yellow);
       letter-spacing: -2px;
       line-height: 1;
-      margin-bottom: 12px;
+      margin-bottom: 4px;
     }
 
-    .hero p {
-      font-size: 15px;
+    .about-stat-label {
+      font-size: 12px;
+      color: #666;
       font-weight: 400;
-      color: #444;
-      max-width: 500px;
     }
 
+    /* ── SUPPORT CONTAINER ── */
     .container {
       max-width: 760px;
       margin: 0 auto;
@@ -83,10 +292,9 @@
       margin-top: 48px;
     }
 
-    .section-label:first-child {
-      margin-top: 0;
-    }
+    .section-label:first-child { margin-top: 0; }
 
+    /* ── FAQ ── */
     .faq-item {
       background: white;
       border-radius: 14px;
@@ -112,9 +320,7 @@
       gap: 16px;
     }
 
-    .faq-question:hover {
-      background: #fafafa;
-    }
+    .faq-question:hover { background: #fafafa; }
 
     .faq-icon {
       width: 24px;
@@ -130,25 +336,52 @@
       transition: transform 0.2s ease;
     }
 
-    .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
 
     .faq-answer {
       display: none;
-      padding: 0 24px 20px;
+      padding: 16px 24px 20px;
       font-size: 14px;
       font-weight: 400;
       color: #555;
       line-height: 1.7;
       border-top: 1px solid #f0f0f0;
-      padding-top: 16px;
     }
 
-    .faq-item.open .faq-answer {
-      display: block;
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ── INFO GRID ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
 
+    .info-card {
+      background: white;
+      border-radius: 14px;
+      border: 1.5px solid #e8e8e8;
+      padding: 20px;
+    }
+
+    .info-card .icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .info-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .info-card p {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* ── CONTACT ── */
     .contact-card {
       background: var(--black);
       border-radius: 16px;
@@ -183,68 +416,120 @@
       transition: opacity 0.15s;
     }
 
-    .contact-email:hover {
-      opacity: 0.85;
-    }
+    .contact-email:hover { opacity: 0.85; }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    @media (max-width: 500px) {
-      .info-grid { grid-template-columns: 1fr; }
-      .hero { padding: 40px 24px; }
-      header { padding: 20px 24px; }
-    }
-
-    .info-card {
-      background: white;
-      border-radius: 14px;
-      border: 1.5px solid #e8e8e8;
-      padding: 20px;
-    }
-
-    .info-card .icon {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .info-card h4 {
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .info-card p {
-      font-size: 12px;
-      color: #777;
-      line-height: 1.6;
-    }
-
+    /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 24px;
+      padding: 28px;
       font-size: 12px;
       color: var(--mid-grey);
       border-top: 1px solid #e0e0e0;
+      background: var(--black);
+      color: #555;
+    }
+
+    footer a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--yellow); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 64px 24px 56px; }
+      .features { padding: 48px 24px; }
+      .features-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px; }
+      .about-graphic { display: none; }
+      .info-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">Dough</div>
-    <span class="logo-sub">Support</span>
-  </header>
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Dough</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <div class="hero">
-    <h1>How can we help?</h1>
-    <p>Find answers below or get in touch — we're a small team and we actually read every message.</p>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Now available on iOS</div>
+    <h1>Your guide to <span>artisan</span> independent bakeries</h1>
+    <p class="hero-sub">No chains. No compromises. Just great bread, pastries, and the people who make them — discovered through Dough.</p>
+    <div class="hero-cta">
+      <a class="appstore-badge" href="#" onclick="return false;">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        <div>
+          <div class="appstore-badge-sub">Download on the</div>
+          <div>App Store</div>
+        </div>
+      </a>
+      <div class="coming-soon-note">Free to download · iOS only · No account needed</div>
+    </div>
+  </section>
 
-  <div class="container">
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">🗺️</div>
+        <h3>Discover nearby</h3>
+        <p>Find independent bakeries close to you, sorted by distance with opening hours so you never arrive too late.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💛</div>
+        <h3>Save your favourites</h3>
+        <p>Heart the ones you love and build custom lists — your weekend spots, date night picks, whatever works for you.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🍞</div>
+        <h3>Independent only</h3>
+        <p>Every bakery on Dough is hand-picked. No chains, no franchises — just real bakers doing things the right way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div>
+        <div class="about-label">The Story</div>
+        <h2>Built by a bread lover, <span>for bread lovers</span></h2>
+        <p>Dough started with a simple frustration — I kept walking past the same chain coffee shops while amazing independent bakeries were tucked around the corner, totally undiscovered.</p>
+        <p>I'm Stefan, and I've been obsessed with good bread my whole life. There's something about the craft of it — the time, the skill, the ingredients — that deserves to be celebrated. Good bread made well is one of life's genuine pleasures, and the people making it deserve more than to be overshadowed by the big names.</p>
+        <p>So I built Dough. A place to find those bakeries, support them, and help more people discover what great bread actually tastes like.</p>
+      </div>
+      <div class="about-graphic">
+        <div class="about-stat">
+          <div class="about-stat-number">100%</div>
+          <div class="about-stat-label">Independent bakeries — no chains, ever</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">£0</div>
+          <div class="about-stat-label">Cost to download — free, no subscriptions</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">0</div>
+          <div class="about-stat-label">Ads or paid placements in the app</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT -->
+  <div id="support" class="container">
 
     <div class="section-label">Frequently Asked Questions</div>
 
@@ -290,11 +575,11 @@
 
     <div class="faq-item">
       <button class="faq-question" onclick="toggle(this)">
-        Why can't I see bakeries near me?
+        Which cities does Dough cover?
         <div class="faq-icon">+</div>
       </button>
       <div class="faq-answer">
-        Dough currently covers London. Make sure location access is enabled for Dough in your iPhone Settings → Privacy & Security → Location Services. If you're in London and still not seeing results, try restarting the app.
+        Dough currently covers London, with more cities coming soon. If you'd like to see your city added, drop us an email — knowing where demand is helps us prioritise.
       </div>
     </div>
 
@@ -304,7 +589,7 @@
         <div class="faq-icon">+</div>
       </button>
       <div class="faq-answer">
-        Dough collects approximate location data and anonymous usage data (such as which bakeries are viewed and which filters are used) to improve the app. We do not collect your name, email, or any personal information. No data is sold or shared with advertisers. Full details are in our Privacy Policy.
+        Dough collects approximate location data and anonymous usage data (such as which bakeries are viewed and which filters are used) to improve the app. We do not collect your name, email, or any personal information. No data is sold or shared with advertisers.
       </div>
     </div>
 
@@ -329,7 +614,7 @@
       <div class="info-card">
         <div class="icon">📱</div>
         <h4>Compatibility</h4>
-        <p>Requires iOS 26 or later. Available on iPhone.</p>
+        <p>Requires iOS 16 or later. Available on iPhone.</p>
       </div>
       <div class="info-card">
         <div class="icon">🔄</div>
@@ -343,7 +628,7 @@
       </div>
     </div>
 
-    <div class="section-label">Get in Touch</div>
+    <div class="section-label" id="contact">Get in Touch</div>
 
     <div class="contact-card">
       <h3>Still need help?</h3>
@@ -354,7 +639,8 @@
   </div>
 
   <footer>
-    © 2026 Dough. Made with 🍞 in London.
+    © 2026 Dough · Made with 🍞 in London &nbsp;·&nbsp;
+    <a href="#">Privacy Policy</a>
   </footer>
 
   <script>
@@ -362,6 +648,9 @@
       const item = btn.closest('.faq-item');
       item.classList.toggle('open');
     }
+
+    // Update App Store link when live
+    // document.querySelector('.appstore-badge').href = 'https://apps.apple.com/app/id6768745454';
   </script>
 
 </body>
